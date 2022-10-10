@@ -1,33 +1,55 @@
-// it's the map maintains the relationship between the id and postsname.
+// it's the map maintains the relationship between the id and posts info.
 // I won't have many posts, so it's a very cheap version to generate some ids.
 const matter = require('gray-matter');
-const fs = require('fs');
+const fse = require('fs-extra');
+const path = require('path');
+const dayjs = require('dayjs');
 
-let postMap = {
-};
+async function update() {
+    let postMap = {};
 
-try {
-    const rawMap = fs.readFileSync('postMap.json');
-    if (rawMap) {
-        postMap = JSON.parse(rawMap);
-    }
-} catch (e) {}
-
-const mapArr = Object.values(postMap).map(item => item.title);
-const postFileNames = fs.readdirSync('_posts');
-
-let topId = Math.max(Object.keys(postMap).map(key => parseInt(key)));
-
-postFileNames.forEach((name) => {
-    // the ids of existing posts should not change during each build.
-    if (!mapArr.includes(name)) {
-        // I don't want the new id to be constant.
-        const id = topId + Math.ceil(Math.random() * 10) + 1;
-        postMap[id] = {
-            fileName: name
+    const getTopId = () => {
+        const keys = Object.keys(postMap);
+        if (!keys.length) {
+            return 0;
         }
-        topId = id;
-    }
-});
+        return Math.max(...keys.map(key => parseInt(key)))
+    };
 
-fs.writeFileSync('postMap.json', JSON.stringify(postMap));
+    // init postMap from postMap.json
+    try {
+        const rawMap = await fse.readFile('postMap.json');
+        if (rawMap) {
+            postMap = JSON.parse(rawMap);
+        }
+    } catch (e) { }
+
+    // loop through md files in _posts, collect infos from them.
+    const mapArr = Object.values(postMap).map(item => item.title);
+    const postFileNames = await fse.readdir('./_posts');
+    const mdPathList = postFileNames.map((name) => ({
+        name,
+        path: path.join(process.cwd(), '_posts', name)
+    }))
+
+    for (const { name, path } of mdPathList) {
+        const mdData = await fse.readFile(path);
+        const { data: mdInfo } = matter(mdData);
+        const { title, date, skip = false } = mdInfo;
+        if (!mapArr.includes(title)) {
+            // I don't want the new id to be constant.
+            const id = getTopId() + Math.ceil(Math.random() * 10) + 1;
+            postMap[id] = {
+                id,
+                name,
+                title,
+                date: dayjs(date).format('YYYY-MM-DD'),
+                skip
+            }
+        }
+    }
+
+    await fse.writeFile('postMap.json', JSON.stringify(postMap));
+}
+
+update();

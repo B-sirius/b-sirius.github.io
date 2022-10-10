@@ -17,23 +17,29 @@ export async function getStaticPaths(context) {
 
 export async function getStaticProps(context) {
     const { id } = context.params;
-    const { title } = postMap[id];
-    const mdData = fs.readFileSync(`${postsDirPath}/${title}`);
-    const { data: mdInfo, content: mdText } = matter(mdData);
+    const { name, title, date } = postMap[id];
+    const mdData = fs.readFileSync(`${postsDirPath}/${name}`);
+    const { content: mdText } = matter(mdData);
     return {
         props: {
             id,
-            mdInfo,
-            mdText
+            title,
+            date,
+            mdText,
         }
     }
 }
 
 const Post = (props) => {
-    const { mdText, mdInfo } = props;
+    const { mdText, date, title } = props;
     return (
         <div>
-            title: {mdInfo.title}
+            <div>
+                title: {title}
+            </div>
+            <div>
+                date: {date}
+            </div>
             <ReactMarkdown children={mdText} />
         </div>
     )
