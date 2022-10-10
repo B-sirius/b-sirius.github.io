@@ -1,0 +1,3 @@
+const PostList = () => (
+    <ul></ul>
+)
