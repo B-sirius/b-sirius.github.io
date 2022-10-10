@@ -1,5 +1,5 @@
 import postMap from 'postMap.json';
-import fs from 'fs';
+import fse from 'fs-extra';
 import matter from 'gray-matter';
 import path from 'path';
 import ReactMarkdown from 'react-markdown';
@@ -18,7 +18,7 @@ export async function getStaticPaths(context) {
 export async function getStaticProps(context) {
     const { id } = context.params;
     const { name, title, date } = postMap[id];
-    const mdData = fs.readFileSync(`${postsDirPath}/${name}`);
+    const mdData = await fse.readFile(`${postsDirPath}/${name}`);
     const { content: mdText } = matter(mdData);
     return {
         props: {
@@ -40,7 +40,9 @@ const Post = (props) => {
             <div>
                 date: {date}
             </div>
-            <ReactMarkdown children={mdText} />
+            <ReactMarkdown>
+                {mdText}
+            </ReactMarkdown>
         </div>
     )
 }

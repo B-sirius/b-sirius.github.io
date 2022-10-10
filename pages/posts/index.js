@@ -1,3 +1,5 @@
 const PostList = () => (
-    <ul></ul>
+    <ul>post list</ul>
 )
+
+export default PostList;

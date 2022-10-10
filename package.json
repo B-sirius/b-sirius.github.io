@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "updateMap": "node updateMap.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "updateMap": "node updateMap.js",
+    "export": "next build && next export"
   },
   "dependencies": {
     "dayjs": "^1.11.5",
