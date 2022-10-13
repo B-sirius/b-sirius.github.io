@@ -18,7 +18,7 @@ const PostList = () => (
         {list.map((post) => {
             const { date, title, id } = post;
             return (
-                <div>
+                <div key={id}>
                     <Link href={`/posts/${id}`}>{title}</Link>
                     <div>{date}</div>
                 </div>

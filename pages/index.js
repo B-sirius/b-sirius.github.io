@@ -1,12 +1,17 @@
-import Link from 'next/link';
+import DynamicDevice from 'components/Device';
+import BrowserHome from 'components/browser/Home';
+import MobileHome from 'components/mobile/Home';
 
 export default function Home() {
   return (
-    <div>
-      <div>home</div>
-      <div>
-        <Link href="/posts">posts</Link>
-      </div>
-    </div>
+    <DynamicDevice>
+      { (isBrowser) => {
+        if (isBrowser) {
+          return <BrowserHome />
+        }
+        return <MobileHome />;
+      } }
+    </DynamicDevice>
+    
   )
 }
