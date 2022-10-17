@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "updateMap": "node updateMap.js",
-    "export": "yarn updateMap && next build && next export -o docs/"
+    "export": "yarn updateMap && next build && next export -o docs/",
+    "startDoc": "http-server ./docs"
   },
   "dependencies": {
     "dayjs": "^1.11.5",
