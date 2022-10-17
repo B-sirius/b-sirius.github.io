@@ -25,11 +25,11 @@ const pictureFrameHeight = 400;
 const Background = () => (
     <rect x={0} y={0} width={frameWidth} height={frameHeight} fill={HOME_MAIN} />
 )
-const WallLine1 = () => (<line x1={corner1X} y1={0} x2={corner1X} y2={cornerY} stroke-width={lineWidth} stroke={HOME_DARK} />);
-const WallLine2 = () => (<line x1={0} y1={frameHeight} x2={corner1X} y2={cornerY} stroke-width={lineWidth} stroke={HOME_DARK} />);
-const WallLine3 = () => (<line x1={corner2X} y1={cornerY} x2={corner1X} y2={cornerY} stroke-width={lineWidth} stroke={HOME_DARK} />);
-const WallLine4 = () => (<line x1={corner2X} y1={0} x2={corner2X} y2={cornerY} stroke-width={lineWidth} stroke={HOME_DARK} />);
-const WallLine5 = () => (<line x1={frameWidth} y1={frameHeight} x2={corner2X} y2={cornerY} stroke-width={lineWidth} stroke={HOME_DARK} />);
+const WallLine1 = () => (<line x1={corner1X} y1={0} x2={corner1X} y2={cornerY} strokeWidth={lineWidth} stroke={HOME_DARK} />);
+const WallLine2 = () => (<line x1={0} y1={frameHeight} x2={corner1X} y2={cornerY} strokeWidth={lineWidth} stroke={HOME_DARK} />);
+const WallLine3 = () => (<line x1={corner2X} y1={cornerY} x2={corner1X} y2={cornerY} strokeWidth={lineWidth} stroke={HOME_DARK} />);
+const WallLine4 = () => (<line x1={corner2X} y1={0} x2={corner2X} y2={cornerY} strokeWidth={lineWidth} stroke={HOME_DARK} />);
+const WallLine5 = () => (<line x1={frameWidth} y1={frameHeight} x2={corner2X} y2={cornerY} strokeWidth={lineWidth} stroke={HOME_DARK} />);
 const PictureFrame = () => (
     <g>
         <rect
@@ -37,7 +37,7 @@ const PictureFrame = () => (
             y={153}
             width={pictureFrameWidth}
             height={pictureFrameHeight}
-            stroke-width={lineWidth * 2}
+            strokeWidth={lineWidth * 2}
             stroke={HOME_DARK} />
         <LazyImage
             xlinkHref={IMAGES[0].url}
@@ -67,12 +67,11 @@ const Door = () => (
     <path
         d="M76.5 670 v 178 L143 783 v -178 Z"
         stroke={HOME_DARK}
-        stroke-width={lineWidth}
+        strokeWidth={lineWidth}
         fill={HOME_HIGHLIGHT} />
 );
 
 const Home = () => {
-    const { innerHeight: windowHeight, innerWidth: windowWidth } = window;
     return (
         <div className={styles.container}>
             <svg className={styles.svg} viewBox={`0 0 ${frameWidth} ${frameHeight}`}>
