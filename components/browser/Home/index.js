@@ -30,23 +30,30 @@ const WallLine2 = () => (<line x1={0} y1={frameHeight} x2={corner1X} y2={cornerY
 const WallLine3 = () => (<line x1={corner2X} y1={cornerY} x2={corner1X} y2={cornerY} strokeWidth={lineWidth} stroke={HOME_DARK} />);
 const WallLine4 = () => (<line x1={corner2X} y1={0} x2={corner2X} y2={cornerY} strokeWidth={lineWidth} stroke={HOME_DARK} />);
 const WallLine5 = () => (<line x1={frameWidth} y1={frameHeight} x2={corner2X} y2={cornerY} strokeWidth={lineWidth} stroke={HOME_DARK} />);
-const PictureFrame = () => (
-    <g>
-        <rect
-            x={(frameWidth - pictureFrameWidth) / 2}
-            y={153}
-            width={pictureFrameWidth}
-            height={pictureFrameHeight}
-            strokeWidth={lineWidth * 2}
-            stroke={HOME_DARK} />
-        <LazyImage
-            xlinkHref={IMAGES[0].url}
-            x={(frameWidth - pictureFrameWidth) / 2}
-            y={153}
-            width={pictureFrameWidth}
-            height={pictureFrameHeight} />
-    </g>
-);
+const PictureFrame = () => {
+    const openGallary = () => {
+        window.location.href = "/gallary";
+    }
+    return (
+        <g>
+            <rect
+                x={(frameWidth - pictureFrameWidth) / 2}
+                y={153}
+                width={pictureFrameWidth}
+                height={pictureFrameHeight}
+                strokeWidth={lineWidth * 2}
+                stroke={HOME_DARK} />
+            <LazyImage
+                className="pointer"
+                onClick={openGallary}
+                xlinkHref={IMAGES[0].url}
+                x={(frameWidth - pictureFrameWidth) / 2}
+                y={153}
+                width={pictureFrameWidth}
+                height={pictureFrameHeight} />
+        </g>
+    )
+}
 const HomeText = () => (
     <>
         <clipPath id="homeTextClip">
@@ -57,19 +64,26 @@ const HomeText = () => (
                 fill={HOME_DARK}
                 x={-265}
                 y={-50}
-                className={styles.roomText}>
+                className={`noselect ${styles.roomText}`}>
                 Banana Room
             </text>
         </g>
     </>
 );
-const Door = () => (
-    <path
-        d="M76.5 670 v 178 L143 783 v -178 Z"
-        stroke={HOME_DARK}
-        strokeWidth={lineWidth}
-        fill={HOME_HIGHLIGHT} />
-);
+const Door = () => {
+    const openPosts = () => {
+        window.location.href = "/posts";
+    }
+    return (
+        <path
+            onClick={openPosts}
+            className="pointer"
+            d="M76.5 670 v 178 L143 783 v -178 Z"
+            stroke={HOME_DARK}
+            strokeWidth={lineWidth}
+            fill={HOME_HIGHLIGHT} />
+    )
+}
 
 const Home = () => {
     return (
