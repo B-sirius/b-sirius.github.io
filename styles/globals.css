@@ -24,3 +24,11 @@ a {
     background: black;
   }
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+.noselect {
+  user-select: none;
+}

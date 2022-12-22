@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><link rel="preload" href="/_next/static/css/ab44ce7add5c3d11.css" as="style"/><link rel="stylesheet" href="/_next/static/css/ab44ce7add5c3d11.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-b597bb4f2a3f6d2e.js" defer=""></script><script src="/_next/static/chunks/framework-7751730b10fa0f74.js" defer=""></script><script src="/_next/static/chunks/main-e7a7892cb0edc024.js" defer=""></script><script src="/_next/static/chunks/pages/_app-44eef5cac14573bd.js" defer=""></script><script src="/_next/static/chunks/985-9c6dbc68fe2fe1fb.js" defer=""></script><script src="/_next/static/chunks/pages/posts/%5Bid%5D-306ce18f4b5f4cbd.js" defer=""></script><script src="/_next/static/xVFKlOnB1qu1k0-FevYPk/_buildManifest.js" defer=""></script><script src="/_next/static/xVFKlOnB1qu1k0-FevYPk/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div><div>title: <!-- -->弹一弹#2 方块与圆の碰撞物语</div><div>date: <!-- -->2018-05-03</div><h1>弹一弹#2 方块与圆の碰撞物语</h1>
+<p>编译原理好鸡儿难，课设真尼玛烦，俺现在只想摸鱼 _(┐「ε:)_</p>
+<hr/>
+<h2>前言</h2>
+<p>对于两个物体之间的碰撞检测，依据两个物体本身属性的不同，所采取的策略也不尽相同。简单的来说可以分为3大类：</p>
+<ol>
+<li>依据每一帧中，几何图形的重合来检测</li>
+<li>基于像素、地图格子来检测</li>
+<li>基于速度矢量与相应判别条件来检测</li>
+</ol>
+<p>在弹一弹的例子中，第一种应该是首要的检测方式，后面两种如果俺开心再写吧【滑稽】</p>
+<p>而在第一种中，又有几种不同的情形需要采取不同策略对待：</p>
+<ol>
+<li>圆-圆</li>
+<li>无旋转矩形-无旋转矩形</li>
+<li>圆-矩形（可有旋转）</li>
+<li>任意多边形</li>
+</ol>
+<p>其中1和2都太过耿直，在此不做说明。本水文着重讨论第3种情形，第4种会更的嗯，俺有骗过你么 （’へ’）</p>
+<h2>圆 &amp; 无旋转方块儿</h2>
+<p>我们要解决的问题，本质上就是要知道圆与矩形有无“接触”——而有了圆-圆检测的经验后，不难想到，我们要做的就是找到<strong>矩形上离圆最近的点</strong>，通过这一点到圆心的距离与圆的半径之间的比较，就能确定圆与矩形是否接触：</p>
+<p>图片来源：<a href="https://aotu.io/notes/2017/02/16/2d-collision-detection/">凹凸实验室</a></p>
+<p><img src="https://hukua-blog.oss-cn-beijing.aliyuncs.com/markdown-imgs/rect%26circle-1.png" alt="情形2"/></p>
+<p><img src="https://hukua-blog.oss-cn-beijing.aliyuncs.com/markdown-imgs/rect%26circle-2.png" alt="情形1"/></p>
+<p><img src="https://hukua-blog.oss-cn-beijing.aliyuncs.com/markdown-imgs/rect%26circle-3.png" alt="情形1"/></p>
+<p>不难看出这个最近点在x轴、y轴与圆心之间的关系，可以参考下面这个demo：</p>
+<!-- -->&lt;p data-height=&quot;265&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;YLpBZM&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;padfoot_07&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;rect&amp;ball&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/padfoot_07/pen/YLpBZM/&quot;&gt;rect&amp;ball&lt;/a&gt; by Zhouyi (&lt;a href=&quot;https://codepen.io/padfoot_07&quot;&gt;@padfoot_07&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;<!-- -->
+<h2>圆 &amp; 旋转方块儿</h2>
+<p>如果矩形旋转了a度，只需要<strong>以矩形中心为旋转中心，旋转画布-a度</strong>，我们就又回到了上面一种无旋转情形！</p>
+<p>换而言之，我们需要额外做的，就是计算<strong>旋转后的圆心</strong>。那么首先推导一下某个点绕原点旋转一定角度后的坐标：</p>
+<p>证明来源：<a href="https://aotu.io/notes/2017/02/16/2d-collision-detection/">凹凸实验室</a></p>
+<p><img src="https://hukua-blog.oss-cn-beijing.aliyuncs.com/markdown-imgs/rect%26circle-4.png" alt="原点旋转"/></p>
+<p>A为旋转前，B为原点，C为旋转后，r为半径，则</p>
+<ol>
+<li>设 A 点旋转前的角度为 δ，则旋转（逆时针）到 C 点后的角度为(δ+β)</li>
+<li>由于 |AB| 与 |CB| 相等（即长度），且<!-- -->
+<ul>
+<li>|AB| = y/sin(δ) = x / cos(δ)</li>
+<li>|CB| = d/sin(δ + β) = c / cos(δ + β)</li>
+</ul>
+</li>
+<li>半径 r = x / cos(δ) = y / sin(δ) = d / sin(δ + β) = c / cos(δ + β)</li>
+<li>三角函数两角和差公式：<!-- -->
+<ul>
+<li>sin(δ + β) = sin(δ)cos(β) + cos(δ)sin(β)</li>
+<li>cos(δ + β) = cos(δ)cos(β) - sin(δ)sin(β)</li>
+</ul>
+</li>
+<li>得出旋转后的坐标<!-- -->
+<ul>
+<li>c = r * cos(δ + β) = r * cos(δ)cos(β) - r * sin(δ)sin(β) = x * cos(β) - y * sin(β)</li>
+<li>d = r * sin(δ + β) = r * sin(δ)cos(β) + r * cos(δ)sin(β) = y * cos(β) + x * sin(β)</li>
+</ul>
+</li>
+</ol>
+<p>那么对于旋转中心 (centerX, centerY) ，其实只要做一个坐标轴平移的工作：</p>
+<p><img src="https://hukua-blog.oss-cn-beijing.aliyuncs.com/markdown-imgs/rect%26circle-5.png" alt="绕某点旋转"/></p>
+<pre><code class="language-javascript">x’ = cos(β) * (cx – centerX) – sin(β) * (cy – centerY) + centerX
+y’ = sin(β) * (cx – centerX) + cos(β) * (cy – centerY) + centerY
+</code></pre>
+<p>以上就是我们需要的旋转公式。</p>
+<p>下面这个demo中应用了上述理论，透明度较低的是旋转后的图形：</p>
+<!-- -->&lt;p data-height=&quot;265&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;rvmKKj&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;padfoot_07&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;rotatedRect&amp;ball&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/padfoot_07/pen/rvmKKj/&quot;&gt;rotatedRect&amp;ball&lt;/a&gt; by Zhouyi (&lt;a href=&quot;https://codepen.io/padfoot_07&quot;&gt;@padfoot_07&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;<!-- -->
+<hr/>
+<p>好了不多说了，我只想看下一集小英雄，再见了您！</p></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"id":"117","title":"弹一弹#2 方块与圆の碰撞物语","date":"2018-05-03","mdText":"\n# 弹一弹#2 方块与圆の碰撞物语\n\n编译原理好鸡儿难，课设真尼玛烦，俺现在只想摸鱼 \\_(┐「ε:)\\_\n\n---\n\n## 前言\n\n对于两个物体之间的碰撞检测，依据两个物体本身属性的不同，所采取的策略也不尽相同。简单的来说可以分为3大类：\n\n1. 依据每一帧中，几何图形的重合来检测\n2. 基于像素、地图格子来检测\n3. 基于速度矢量与相应判别条件来检测\n\n在弹一弹的例子中，第一种应该是首要的检测方式，后面两种如果俺开心再写吧【滑稽】\n\n而在第一种中，又有几种不同的情形需要采取不同策略对待：\n\n1. 圆-圆\n2. 无旋转矩形-无旋转矩形\n3. 圆-矩形（可有旋转）\n4. 任意多边形\n\n其中1和2都太过耿直，在此不做说明。本水文着重讨论第3种情形，第4种会更的嗯，俺有骗过你么 （’へ’）\n\n## 圆 \u0026 无旋转方块儿\n\n我们要解决的问题，本质上就是要知道圆与矩形有无“接触”——而有了圆-圆检测的经验后，不难想到，我们要做的就是找到**矩形上离圆最近的点**，通过这一点到圆心的距离与圆的半径之间的比较，就能确定圆与矩形是否接触：\n\n图片来源：[凹凸实验室](https://aotu.io/notes/2017/02/16/2d-collision-detection/)\n\n![情形2](https://hukua-blog.oss-cn-beijing.aliyuncs.com/markdown-imgs/rect%26circle-1.png)\n\n![情形1](https://hukua-blog.oss-cn-beijing.aliyuncs.com/markdown-imgs/rect%26circle-2.png)\n\n![情形1](https://hukua-blog.oss-cn-beijing.aliyuncs.com/markdown-imgs/rect%26circle-3.png)\n\n不难看出这个最近点在x轴、y轴与圆心之间的关系，可以参考下面这个demo：\n\n\u003cp data-height=\"265\" data-theme-id=\"0\" data-slug-hash=\"YLpBZM\" data-default-tab=\"js,result\" data-user=\"padfoot_07\" data-embed-version=\"2\" data-pen-title=\"rect\u0026ball\" class=\"codepen\"\u003eSee the Pen \u003ca href=\"https://codepen.io/padfoot_07/pen/YLpBZM/\"\u003erect\u0026ball\u003c/a\u003e by Zhouyi (\u003ca href=\"https://codepen.io/padfoot_07\"\u003e@padfoot_07\u003c/a\u003e) on \u003ca href=\"https://codepen.io\"\u003eCodePen\u003c/a\u003e.\u003c/p\u003e\n\u003cscript async src=\"https://static.codepen.io/assets/embed/ei.js\"\u003e\u003c/script\u003e\n\n## 圆 \u0026 旋转方块儿\n\n如果矩形旋转了a度，只需要**以矩形中心为旋转中心，旋转画布-a度**，我们就又回到了上面一种无旋转情形！\n\n换而言之，我们需要额外做的，就是计算**旋转后的圆心**。那么首先推导一下某个点绕原点旋转一定角度后的坐标：\n\n证明来源：[凹凸实验室](https://aotu.io/notes/2017/02/16/2d-collision-detection/)\n\n![原点旋转](https://hukua-blog.oss-cn-beijing.aliyuncs.com/markdown-imgs/rect%26circle-4.png)\n\nA为旋转前，B为原点，C为旋转后，r为半径，则\n\n1. 设 A 点旋转前的角度为 δ，则旋转（逆时针）到 C 点后的角度为(δ+β)\n2. 由于 |AB| 与 |CB| 相等（即长度），且\n   - |AB| = y/sin(δ) = x / cos(δ)\n   - |CB| = d/sin(δ + β) = c / cos(δ + β)\n3. 半径 r = x / cos(δ) = y / sin(δ) = d / sin(δ + β) = c / cos(δ + β)\n4. 三角函数两角和差公式：\n   - sin(δ + β) = sin(δ)cos(β) + cos(δ)sin(β)\n   - cos(δ + β) = cos(δ)cos(β) - sin(δ)sin(β)\n5. 得出旋转后的坐标\n   - c = r * cos(δ + β) = r * cos(δ)cos(β) - r * sin(δ)sin(β) = x * cos(β) - y * sin(β)\n   - d = r * sin(δ + β) = r * sin(δ)cos(β) + r * cos(δ)sin(β) = y * cos(β) + x * sin(β)\n\n那么对于旋转中心 (centerX, centerY) ，其实只要做一个坐标轴平移的工作：\n\n![绕某点旋转](https://hukua-blog.oss-cn-beijing.aliyuncs.com/markdown-imgs/rect%26circle-5.png)\n\n```javascript\nx’ = cos(β) * (cx – centerX) – sin(β) * (cy – centerY) + centerX\ny’ = sin(β) * (cx – centerX) + cos(β) * (cy – centerY) + centerY\n```\n\n以上就是我们需要的旋转公式。\n\n下面这个demo中应用了上述理论，透明度较低的是旋转后的图形：\n\n\u003cp data-height=\"265\" data-theme-id=\"0\" data-slug-hash=\"rvmKKj\" data-default-tab=\"js,result\" data-user=\"padfoot_07\" data-embed-version=\"2\" data-pen-title=\"rotatedRect\u0026ball\" class=\"codepen\"\u003eSee the Pen \u003ca href=\"https://codepen.io/padfoot_07/pen/rvmKKj/\"\u003erotatedRect\u0026ball\u003c/a\u003e by Zhouyi (\u003ca href=\"https://codepen.io/padfoot_07\"\u003e@padfoot_07\u003c/a\u003e) on \u003ca href=\"https://codepen.io\"\u003eCodePen\u003c/a\u003e.\u003c/p\u003e\n\u003cscript async src=\"https://static.codepen.io/assets/embed/ei.js\"\u003e\u003c/script\u003e\n\n------\n\n好了不多说了，我只想看下一集小英雄，再见了您！"},"__N_SSG":true},"page":"/posts/[id]","query":{"id":"117"},"buildId":"xVFKlOnB1qu1k0-FevYPk","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
