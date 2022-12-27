@@ -9,7 +9,7 @@ const DialogTitle = styled(StyledDialogBox)`
 
     & > div {
         width: fit-content;
-        color: #e7e496;
+        color: ${({ theme }) => theme.fontHighlightColor};
     }
 `
 

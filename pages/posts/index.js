@@ -3,6 +3,9 @@ import postMap from 'postMap.json';
 import dayjs from 'dayjs';
 import styled from 'styled-components';
 import DialogLink from 'components/DialogLink';
+import Root from 'components/Root';
+import { ThemeProvider } from 'styled-components';
+import theme from 'theme';
 
 // 按时间排序好的博客内容
 const sortedPosts = Object
@@ -15,17 +18,6 @@ const sortedPosts = Object
         }
         return -1;
     });
-
-// 根容器，覆盖全屏
-const RootWrapper = styled.div`
-    background-color: #000;
-    overflow: scroll;
-`
-const Root = ({ children }) => (
-    <RootWrapper>
-        {children}
-    </RootWrapper>
-)
 
 // 固定宽度的主体容器
 const ContainerWrapper = styled.div`
@@ -45,19 +37,21 @@ const HomeSection = styled(DialogLink)`
 
 // 列表
 const PostList = () => (
-    <Root>
-        <Container>
-            {sortedPosts.map((post) => {
-                const { date, title, id, description } = post;
-                return (
-                    <HomeSection title={title} key={id} href={`/posts/${id}`}>
-                        <div>{description}</div>
-                        <div>{date}</div>
-                    </HomeSection>
-                )
-            })}
-        </Container>
-    </Root>
+    <ThemeProvider theme={theme}>
+        <Root>
+            <Container>
+                {sortedPosts.map((post) => {
+                    const { date, title, id, description } = post;
+                    return (
+                        <HomeSection title={title} key={id} href={`/posts/${id}`}>
+                            <div>{description}</div>
+                            <div>{date}</div>
+                        </HomeSection>
+                    )
+                })}
+            </Container>
+        </Root>
+    </ThemeProvider>
 )
 
 export default PostList;

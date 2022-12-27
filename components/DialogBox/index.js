@@ -1,5 +1,4 @@
 // 对话框盒，仿照了RPG游戏中的对话框样式
-
 import styled from 'styled-components';
 
 const DialogBox = ({ className, children }) => (
@@ -14,16 +13,16 @@ const StyledDialogBox = styled(DialogBox)`
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    border: 1px solid #9d701d;
-    background-color: #262427;
+    border: 1px solid ${({ theme }) => theme.dialogBorderColor};
+    background-color: ${({ theme }) => theme.dialogBgColor};
     padding: 1px;
     
     & > div {
         display: flex;
         flex-direction: column;
         height: 100%;
-        border: 1px solid #9d701d;
-        color: #fff;
+        border: 1px solid ${({ theme }) => theme.dialogBorderColor};
+        color: ${({ theme }) => theme.fontColor};
         padding: 10px;
     }
 `

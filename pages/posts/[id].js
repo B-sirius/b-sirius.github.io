@@ -3,8 +3,10 @@ import fse from 'fs-extra';
 import matter from 'gray-matter';
 import path from 'path';
 import ReactMarkdown from 'react-markdown';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import StyledDialogBox from 'components/DialogBox';
+import Root from 'components/Root';
+import theme from 'theme';
 
 const postsDirPath = path.join(process.cwd(), '_posts');
 
@@ -32,17 +34,6 @@ export async function getStaticProps(context) {
     }
 }
 
-// 根容器，覆盖全屏
-const RootWrapper = styled.div`
-    background-color: #000;
-    overflow: scroll;
-`
-const Root = ({ children }) => (
-    <RootWrapper>
-        {children}
-    </RootWrapper>
-)
-
 const ContentBox = styled(StyledDialogBox)`
     margin: 40px;
 `
@@ -50,21 +41,23 @@ const ContentBox = styled(StyledDialogBox)`
 const Post = (props) => {
     const { mdText, date, title } = props;
     return (
-        <Root>
-            <ContentBox>
-                <div>
-                    title: {title}
-                </div>
-                <div>
-                    date: {date}
-                </div>
-            </ContentBox>
-            <ContentBox>
-                <ReactMarkdown>
-                    {mdText}
-                </ReactMarkdown>
-            </ContentBox>
-        </Root>
+        <ThemeProvider theme={theme}>
+            <Root>
+                <ContentBox>
+                    <div>
+                        title: {title}
+                    </div>
+                    <div>
+                        date: {date}
+                    </div>
+                </ContentBox>
+                <ContentBox>
+                    <ReactMarkdown>
+                        {mdText}
+                    </ReactMarkdown>
+                </ContentBox>
+            </Root>
+        </ThemeProvider>
     )
 }
 
