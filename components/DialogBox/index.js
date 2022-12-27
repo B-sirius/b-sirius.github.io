@@ -1,4 +1,4 @@
-// 对话框组件，仿照了RPG游戏中的对话框样式
+// 对话框盒，仿照了RPG游戏中的对话框样式
 
 import styled from 'styled-components';
 
@@ -24,7 +24,7 @@ const StyledDialogBox = styled(DialogBox)`
         height: 100%;
         border: 1px solid #9d701d;
         color: #fff;
-        padding: 5px;
+        padding: 10px;
     }
 `
 

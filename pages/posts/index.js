@@ -1,8 +1,9 @@
+// 博客的文章列表页
+
 import postMap from 'postMap.json';
 import dayjs from 'dayjs';
-import Link from 'next/link';
 import styled from 'styled-components';
-import StyledDialogBox from 'components/DialogBox';
+import DialogLink from 'components/DialogLink';
 
 // 按时间排序好的博客内容
 const sortedPosts = Object
@@ -16,63 +17,44 @@ const sortedPosts = Object
         return -1;
     });
 
+// 根容器，覆盖全屏
 const RootWrapper = styled.div`
     background-color: #000;
     overflow: scroll;
 `
-
 const Root = ({ children }) => (
     <RootWrapper>
         {children}
     </RootWrapper>
 )
 
+// 固定宽度的主体容器
 const ContainerWrapper = styled.div`
     width: 960px;
     margin: auto;
 `
-
 const Container = ({ children }) => (
     <ContainerWrapper>
         {children}
     </ContainerWrapper>
 )
 
-const StyledSectionTitle = styled(StyledDialogBox)`
-    width: fit-content;
-
-    & > div {
-        width: fit-content;
-    }
+// 对话框样式的section
+const HomeSection = styled(DialogLink)`
+    margin: 20px;
 `
 
-const HomeSection = ({ className, title, children }) => (
-    <div className={className}>
-        <StyledSectionTitle>
-            {title}
-        </StyledSectionTitle>
-        <StyledDialogBox>
-            {children}
-        </StyledDialogBox>
-    </div>
-)
-
-const StyledHomeSection = styled(HomeSection)`
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-`
-
+// 列表
 const PostList = () => (
     <Root>
         <Container>
             {sortedPosts.map((post) => {
-                const { date, title, id } = post;
+                const { date, title, id, description } = post;
                 return (
-                    <StyledHomeSection title={title} key={id}>
-                        <Link href={`/posts/${id}`}>{title}</Link>
+                    <HomeSection title={title} key={id} href={`/posts/${id}`}>
+                        <div>{description}</div>
                         <div>{date}</div>
-                    </StyledHomeSection>
+                    </HomeSection>
                 )
             })}
         </Container>
