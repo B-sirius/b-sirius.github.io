@@ -1,6 +1,4 @@
 // 根据_posts目录生成postMap.json
-// 映射id于post信息
-// 目前博客不多，采用了一个简单的id生成方式（生成不连续的id）
 const matter = require('gray-matter');
 const fse = require('fs-extra');
 const path = require('path');
@@ -16,11 +14,11 @@ function getDescription(md) {
         ol: /\d+\.\s+.*/,
         ul: /\*\s+.*/,
         task: /\*\s+\[.]\s+.*/,
-        blockQuote: /\>.*/,
+        blockQuote: />.*/,
         table: /\|.*/,
-        image: /\!\[.+\]\(.+\).*/,
+        image: /!\[.+\]\(.+\).*/,
         url: /\[.+\]\(.+\).*/,
-        codeBlock: /\`{3}\w+.*/,
+        codeBlock: /`{3}\w+.*/,
     };
 
     const isTitle = (str) => regex.title.test(str);
@@ -56,6 +54,8 @@ function getDescription(md) {
     return ""
 }
 
+// 映射id于post信息
+// 目前博客不多，采用了一个简单的id生成方式（生成不连续的id）
 async function update() {
     let postMap = {};
 
@@ -73,10 +73,13 @@ async function update() {
         if (rawMap) {
             postMap = JSON.parse(rawMap);
         }
-    } catch (e) { }
+    } catch (e) {
+        // continue regardless of error
+    }
 
     // 遍历_posts目录中的md，获取相关的信息
-    const mapArr = Object.values(postMap).map(item => item.title);
+    const postList = Object.values(postMap);
+    const titleList = postList.map(item => item.title);
     const postFileNames = await fse.readdir('./_posts');
     const mdPathList = postFileNames.map((name) => ({
         name,
@@ -87,9 +90,16 @@ async function update() {
         const mdData = await fse.readFile(path);
         const { data: mdInfo, content } = matter(mdData);
         const { title, date, skip = false } = mdInfo;
-        if (!mapArr.includes(title)) {
+
+        let id;
+        if (!titleList.includes(title)) {
             // 我希望新id是不连续的
-            const id = getTopId() + Math.ceil(Math.random() * 10) + 1;
+            id = getTopId() + Math.ceil(Math.random() * 10) + 1;
+        } else {
+            id = postList.find(item => item.title === title)?.id;
+        }
+
+        if (id) {
             postMap[id] = {
                 id,
                 name,
