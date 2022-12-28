@@ -40,28 +40,20 @@ export async function getStaticProps(context) {
     }
 }
 
-const TitleWrapper = styled.div`
+const TitleContainer = styled.div`
+    padding: 0px 20px 10px;
+`;
+
+const Title = styled.div`
     font-size: 40px;
     color: var(--font-highlight-color);
     margin-bottom: 5px;
 `;
 
-const Title = ({ children }) => (
-    <TitleWrapper>
-        {children}
-    </TitleWrapper>
-)
-
-const TimeWrapper = styled.div`
+const Time = styled.div`
     font-family: monospace;
     font-size: 14px;
 `;
-
-const Time = ({ children }) => (
-    <TimeWrapper>
-        {children}
-    </TimeWrapper>
-);
 
 const Post = (props) => {
     const { mdText, date, title } = props;
@@ -81,12 +73,14 @@ const Post = (props) => {
                 <RootContainer>
                     <Nav />
                     <FitDialogBox>
-                        <Title>
-                            {title}
-                        </Title>
-                        <Time>
-                            Posted on {date}
-                        </Time>
+                        <TitleContainer>
+                            <Title>
+                                {title}
+                            </Title>
+                            <Time>
+                                Posted on {date}
+                            </Time>
+                        </TitleContainer>
                     </FitDialogBox>
                     <StyledDialogBox>
                         <MarkdownStyle>

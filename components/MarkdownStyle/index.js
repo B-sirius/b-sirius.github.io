@@ -1,8 +1,15 @@
 import styled from "styled-components";
 
 const MarkdownStyle = styled.div`
-    & a {
-        color: var(--md-link-color);
+    padding: 20px 30px;
+
+    & {
+        a {
+            color: var(--md-link-color);
+        }
+        img {
+            width: 100%;
+        }
     }
 `;
 

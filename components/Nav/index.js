@@ -6,16 +6,10 @@ const LINKS = [
     ['Posts', '/posts'],
 ]
 
-const ContainerWrapper = styled.div`
+const Container = styled.div`
     display: flex;
     margin-bottom: 40px;
 `
-
-const Container = ({ children }) => (
-    <ContainerWrapper>
-        {children}
-    </ContainerWrapper>
-)
 
 const StyledA = styled.a`
     padding: 5px 0;
