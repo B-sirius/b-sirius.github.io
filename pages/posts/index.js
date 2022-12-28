@@ -24,6 +24,10 @@ const sortedPosts = Object
 // 对话框样式的section
 const HomeSection = styled(DialogLink)`
     margin-bottom: 40px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 `
 
 // 列表

@@ -9,6 +9,8 @@ const RootWrapper = styled.div`
     --font-highlight-color: ${({ theme }) => theme.fontHighlightColor};
     --nav-color: ${({ theme }) => theme.navColor};
 
+    --md-link-color: ${({ theme }) => theme.mdLinkColor};
+
     background-color: var(--root-bg-color);
     overflow: scroll;
 `

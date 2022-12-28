@@ -8,7 +8,6 @@ const LINKS = [
 
 const ContainerWrapper = styled.div`
     display: flex;
-    margin-top: 20px;
     margin-bottom: 40px;
 `
 

@@ -1,14 +1,18 @@
+import { useEffect, useState } from 'react';
 import postMap from 'postMap.json';
 import fse from 'fs-extra';
 import matter from 'gray-matter';
 import path from 'path';
 import ReactMarkdown from 'react-markdown';
 import styled, { ThemeProvider } from 'styled-components';
+import StyledDialogBox from 'components/DialogBox';
 import FitDialogBox from 'components/FitDialogBox';
 import Root from 'components/Root';
 import RootContainer from 'components/RootContainer';
 import Nav from 'components/Nav';
+import MarkdownStyle from 'components/MarkdownStyle';
 import theme from 'theme';
+import rehypeRaw from 'rehype-raw';
 
 const postsDirPath = path.join(process.cwd(), '_posts');
 
@@ -36,13 +40,10 @@ export async function getStaticProps(context) {
     }
 }
 
-const ContentBox = styled(FitDialogBox)`
-    margin-bottom: 0;
-`
-
 const TitleWrapper = styled.div`
     font-size: 40px;
-    color: var(--font-highlight-color)
+    color: var(--font-highlight-color);
+    margin-bottom: 5px;
 `;
 
 const Title = ({ children }) => (
@@ -51,26 +52,47 @@ const Title = ({ children }) => (
     </TitleWrapper>
 )
 
+const TimeWrapper = styled.div`
+    font-family: monospace;
+    font-size: 14px;
+`;
+
+const Time = ({ children }) => (
+    <TimeWrapper>
+        {children}
+    </TimeWrapper>
+);
+
 const Post = (props) => {
     const { mdText, date, title } = props;
+    const [renderedMd, setRenderedMd] = useState(null);
+
+    useEffect(() => {
+        setRenderedMd(
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                {mdText}
+            </ReactMarkdown>
+        )
+    }, [mdText]);
+
     return (
         <ThemeProvider theme={theme}>
             <Root>
                 <RootContainer>
                     <Nav />
-                    <ContentBox>
+                    <FitDialogBox>
                         <Title>
                             {title}
                         </Title>
-                        <div>
+                        <Time>
                             Posted on {date}
-                        </div>
-                    </ContentBox>
-                    <ContentBox>
-                        <ReactMarkdown>
-                            {mdText}
-                        </ReactMarkdown>
-                    </ContentBox>
+                        </Time>
+                    </FitDialogBox>
+                    <StyledDialogBox>
+                        <MarkdownStyle>
+                            {renderedMd}
+                        </MarkdownStyle>
+                    </StyledDialogBox>
                 </RootContainer>
             </Root>
         </ThemeProvider>
