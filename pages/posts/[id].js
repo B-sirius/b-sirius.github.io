@@ -6,6 +6,8 @@ import ReactMarkdown from 'react-markdown';
 import styled, { ThemeProvider } from 'styled-components';
 import FitDialogBox from 'components/FitDialogBox';
 import Root from 'components/Root';
+import RootContainer from 'components/RootContainer';
+import Nav from 'components/Nav';
 import theme from 'theme';
 
 const postsDirPath = path.join(process.cwd(), '_posts');
@@ -35,12 +37,13 @@ export async function getStaticProps(context) {
 }
 
 const ContentBox = styled(FitDialogBox)`
-    margin: 40px;
+    margin-bottom: 0;
 `
 
 const TitleWrapper = styled.div`
     font-size: 40px;
-`
+    color: var(--font-highlight-color)
+`;
 
 const Title = ({ children }) => (
     <TitleWrapper>
@@ -53,19 +56,22 @@ const Post = (props) => {
     return (
         <ThemeProvider theme={theme}>
             <Root>
-                <ContentBox>
-                    <Title>
-                        {title}
-                    </Title>
-                    <div>
-                        Posted on {date}
-                    </div>
-                </ContentBox>
-                <ContentBox>
-                    <ReactMarkdown>
-                        {mdText}
-                    </ReactMarkdown>
-                </ContentBox>
+                <RootContainer>
+                    <Nav />
+                    <ContentBox>
+                        <Title>
+                            {title}
+                        </Title>
+                        <div>
+                            Posted on {date}
+                        </div>
+                    </ContentBox>
+                    <ContentBox>
+                        <ReactMarkdown>
+                            {mdText}
+                        </ReactMarkdown>
+                    </ContentBox>
+                </RootContainer>
             </Root>
         </ThemeProvider>
     )

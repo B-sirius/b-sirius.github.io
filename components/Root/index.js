@@ -7,6 +7,7 @@ const RootWrapper = styled.div`
     --dialog-border-color: ${({ theme }) => theme.dialogBorderColor};
     --font-color: ${({ theme }) => theme.fontColor};
     --font-highlight-color: ${({ theme }) => theme.fontHighlightColor};
+    --nav-color: ${({ theme }) => theme.navColor};
 
     background-color: var(--root-bg-color);
     overflow: scroll;

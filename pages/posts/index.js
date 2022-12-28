@@ -23,7 +23,7 @@ const sortedPosts = Object
 
 // 对话框样式的section
 const HomeSection = styled(DialogLink)`
-    margin: 20px;
+    margin-bottom: 40px;
 `
 
 // 列表
@@ -31,7 +31,7 @@ const PostList = () => (
     <ThemeProvider theme={theme}>
         <Root>
             <RootContainer>
-                <Nav />
+                <Nav activeIndex={1} />
                 {sortedPosts.map((post) => {
                     const { date, title, id, description } = post;
                     return (
