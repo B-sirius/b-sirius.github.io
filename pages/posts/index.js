@@ -2,9 +2,11 @@
 import postMap from 'postMap.json';
 import dayjs from 'dayjs';
 import styled from 'styled-components';
-import DialogLink from 'components/DialogLink';
-import Root from 'components/Root';
 import { ThemeProvider } from 'styled-components';
+import Root from 'components/Root';
+import RootContainer from 'components/RootContainer';
+import DialogLink from 'components/DialogLink';
+import Nav from 'components/Nav';
 import theme from 'theme';
 
 // 按时间排序好的博客内容
@@ -19,17 +21,6 @@ const sortedPosts = Object
         return -1;
     });
 
-// 固定宽度的主体容器
-const ContainerWrapper = styled.div`
-    width: 960px;
-    margin: auto;
-`
-const Container = ({ children }) => (
-    <ContainerWrapper>
-        {children}
-    </ContainerWrapper>
-)
-
 // 对话框样式的section
 const HomeSection = styled(DialogLink)`
     margin: 20px;
@@ -39,17 +30,18 @@ const HomeSection = styled(DialogLink)`
 const PostList = () => (
     <ThemeProvider theme={theme}>
         <Root>
-            <Container>
+            <RootContainer>
+                <Nav />
                 {sortedPosts.map((post) => {
                     const { date, title, id, description } = post;
                     return (
                         <HomeSection title={title} key={id} href={`/posts/${id}`}>
-                            <div>{description}</div>
-                            <div>{date}</div>
+                            <p>[{date}]</p>
+                            <p>{description}</p>
                         </HomeSection>
                     )
                 })}
-            </Container>
+            </RootContainer>
         </Root>
     </ThemeProvider>
 )

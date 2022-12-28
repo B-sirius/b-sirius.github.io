@@ -13,8 +13,8 @@ const StyledDialogBox = styled(DialogBox)`
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    border: 1px solid ${({ theme }) => theme.dialogBorderColor};
-    background-color: ${({ theme }) => theme.dialogBgColor};
+    border: 1px solid var(--dialog-border-color);
+    background-color: var(--dialog-bg-color);
     padding: 1px;
     
     & > div {

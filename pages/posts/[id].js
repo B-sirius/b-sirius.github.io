@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import path from 'path';
 import ReactMarkdown from 'react-markdown';
 import styled, { ThemeProvider } from 'styled-components';
-import StyledDialogBox from 'components/DialogBox';
+import FitDialogBox from 'components/FitDialogBox';
 import Root from 'components/Root';
 import theme from 'theme';
 
@@ -34,9 +34,19 @@ export async function getStaticProps(context) {
     }
 }
 
-const ContentBox = styled(StyledDialogBox)`
+const ContentBox = styled(FitDialogBox)`
     margin: 40px;
 `
+
+const TitleWrapper = styled.div`
+    font-size: 40px;
+`
+
+const Title = ({ children }) => (
+    <TitleWrapper>
+        {children}
+    </TitleWrapper>
+)
 
 const Post = (props) => {
     const { mdText, date, title } = props;
@@ -44,11 +54,11 @@ const Post = (props) => {
         <ThemeProvider theme={theme}>
             <Root>
                 <ContentBox>
+                    <Title>
+                        {title}
+                    </Title>
                     <div>
-                        title: {title}
-                    </div>
-                    <div>
-                        date: {date}
+                        Posted on {date}
                     </div>
                 </ContentBox>
                 <ContentBox>

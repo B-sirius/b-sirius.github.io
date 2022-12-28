@@ -2,16 +2,14 @@
 
 import styled from 'styled-components';
 import StyledDialogBox from 'components/DialogBox';
+import FitDialogBox from 'components/FitDialogBox';
 import Link from 'next/link';
 
-const DialogTitle = styled(StyledDialogBox)`
-    width: fit-content;
-
+const DialogTitle = styled(FitDialogBox)`
     & > div {
-        width: fit-content;
         color: ${({ theme }) => theme.fontHighlightColor};
     }
-`
+`;
 
 const DialogLink = ({ className, title, href, children }) => (
     <div className={className}>
@@ -25,7 +23,6 @@ const DialogLink = ({ className, title, href, children }) => (
                     )
                     : (title)
             }
-
         </DialogTitle>
         <StyledDialogBox>
             {children}
