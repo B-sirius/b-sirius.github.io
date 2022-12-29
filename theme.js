@@ -5,6 +5,8 @@ const theme = {
     fontColor: '#fff',
     fontHighlightColor: '#e7e496',
     navColor: '#e76464',
+    blogTitleShadow: '1px 1px 2px #ad0909, 0 0 1em #7b3f0c, 0 0 0.15em #d2ff8f',
+    blogHintShadow: '1px 1px 2px #ad0909, 0 0 2em #7b3f0c, 0 0 0.2em #d2ff8f',
 
     // markdown theme
     mdLinkColor: '#e64f4f',

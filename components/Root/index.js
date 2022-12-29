@@ -8,6 +8,8 @@ const RootWrapper = styled.div`
     --font-color: ${({ theme }) => theme.fontColor};
     --font-highlight-color: ${({ theme }) => theme.fontHighlightColor};
     --nav-color: ${({ theme }) => theme.navColor};
+    --blog-title-shadow: ${({ theme }) => theme.blogTitleShadow};
+    --blog-hint-shadow: ${({ theme }) => theme.blogHintShadow};
 
     background-color: var(--root-bg-color);
     overflow: scroll;

@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+import BlogTitle from 'components/BlogTitle';
 
 const LINKS = [
     ['Home', '/'],
     ['Posts', '/posts'],
-]
+];
+
+const LinkContainer = styled.div`
+    display: flex;
+    margin-bottom: 20px;
+`
 
 const Container = styled.div`
-    display: flex;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 `
 
 const StyledA = styled.a`
@@ -25,13 +30,16 @@ const StyledA = styled.a`
 
 const Nav = ({ className, activeIndex }) => (
     <Container className={className}>
-        {
-            LINKS.map((item, index) => (
-                <Link href={item[1]} key={item[0]}>
-                    <StyledA active={index === activeIndex}>[{item[0]}]</StyledA>
-                </Link>
-            ))
-        }
+        <LinkContainer>
+            {
+                LINKS.map((item, index) => (
+                    <Link href={item[1]} key={item[0]}>
+                        <StyledA active={index === activeIndex}>[{item[0]}]</StyledA>
+                    </Link>
+                ))
+            }
+        </LinkContainer>
+        <BlogTitle />
     </Container>
 )
 
