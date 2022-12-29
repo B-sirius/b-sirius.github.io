@@ -3,10 +3,16 @@ import styled from "styled-components";
 
 const MarkdownWrapper = styled.div`
     --md-link-color: ${({ theme }) => theme.mdLinkColor};
+    --md-title-shadow: ${({ theme }) => theme.mdTitleShadow};
+    --md-title-color: ${({ theme }) => theme.mdTitleColor};
 
     padding: 20px 20px;
 
     & {
+        h1, h2, h3 {
+            text-shadow: var(--md-title-shadow);
+            color: var(--md-title-color);
+        }
         p {
             font-size: 18px;
             line-height: 2;

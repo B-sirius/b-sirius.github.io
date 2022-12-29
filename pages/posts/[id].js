@@ -13,6 +13,8 @@ import Nav from 'components/Nav';
 import MarkdownWrapper from 'components/MarkdownWrapper';
 import theme from 'theme';
 import rehypeRaw from 'rehype-raw';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 const postsDirPath = path.join(process.cwd(), '_posts');
 
@@ -62,7 +64,26 @@ const Post = (props) => {
     // ReactMarkdown这部分的渲染一定要在客户端进行，所以我们将其放在useEffect中
     useEffect(() => {
         setRenderedMd(
-            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+            <ReactMarkdown
+                rehypePlugins={[rehypeRaw]}
+                components={{
+                    code({ inline, className, children, ...props }) {
+                        const match = /language-(\w+)/.exec(className || "");
+                        return !inline && match ? (
+                            <SyntaxHighlighter
+                                language={match[1]}
+                                style={dark}
+                                {...props}
+                            >
+                                {String(children).replace(/\n$/, "")}
+                            </SyntaxHighlighter>
+                        ) : (
+                            <code className={className} {...props}>
+                                {children}
+                            </code>
+                        );
+                    }
+                }}>
                 {mdText}
             </ReactMarkdown>
         )
