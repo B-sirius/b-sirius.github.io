@@ -6,8 +6,6 @@ const MarkdownWrapper = styled.div`
     --md-title-shadow: ${({ theme }) => theme.mdTitleShadow};
     --md-title-color: ${({ theme }) => theme.mdTitleColor};
 
-    padding: 20px 20px;
-
     & {
         h1, h2, h3 {
             text-shadow: var(--md-title-shadow);
@@ -23,6 +21,14 @@ const MarkdownWrapper = styled.div`
         img {
             width: 100%;
         }
+
+        @media only screen 
+            and (max-width: 500px) {
+                p {
+                    font-size: 16px;
+                    line-height: 1.5;
+                }
+            }
     }
 `;
 

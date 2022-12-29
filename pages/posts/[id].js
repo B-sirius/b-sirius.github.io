@@ -44,7 +44,21 @@ export async function getStaticProps(context) {
 
 const TitleContainer = styled.div`
     padding: 0px 20px 10px;
+    
+    @media only screen 
+            and (max-width: 500px) {
+                padding: 0 5px 10px;
+            }
 `;
+
+const MarkdownContainer = styled.div`
+    padding: 20px 20px;
+
+    @media only screen 
+        and (max-width: 500px) {
+            padding: 5px 5px;
+        }
+`
 
 const Title = styled.div`
     font-size: 40px;
@@ -105,9 +119,11 @@ const Post = (props) => {
                         </TitleContainer>
                     </FitDialogBox>
                     <StyledDialogBox>
-                        <MarkdownWrapper>
-                            {renderedMd}
-                        </MarkdownWrapper>
+                        <MarkdownContainer>
+                            <MarkdownWrapper>
+                                {renderedMd}
+                            </MarkdownWrapper>
+                        </MarkdownContainer>
                     </StyledDialogBox>
                 </RootContainer>
             </Root>
