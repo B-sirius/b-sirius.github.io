@@ -10,7 +10,7 @@ import FitDialogBox from 'components/FitDialogBox';
 import Root from 'components/Root';
 import RootContainer from 'components/RootContainer';
 import Nav from 'components/Nav';
-import MarkdownStyle from 'components/MarkdownStyle';
+import MarkdownWrapper from 'components/MarkdownWrapper';
 import theme from 'theme';
 import rehypeRaw from 'rehype-raw';
 
@@ -83,9 +83,9 @@ const Post = (props) => {
                         </TitleContainer>
                     </FitDialogBox>
                     <StyledDialogBox>
-                        <MarkdownStyle>
+                        <MarkdownWrapper>
                             {renderedMd}
-                        </MarkdownStyle>
+                        </MarkdownWrapper>
                     </StyledDialogBox>
                 </RootContainer>
             </Root>

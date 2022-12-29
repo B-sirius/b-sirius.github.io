@@ -6,6 +6,8 @@ const ContainerWrapper = styled.div`
     margin: auto;
     overflow: hidden;
     padding: 40px 0;
+    min-height: 100vh;
+    color: var(--font-color)
 `
 
 const Container = ({ children }) => (

@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
-const MarkdownStyle = styled.div`
+const MarkdownWrapper = styled.div`
     padding: 20px 30px;
 
     & {
+        p {
+            font-size: 18px;
+            line-height: 2;
+        }
         a {
             color: var(--md-link-color);
         }
@@ -13,4 +17,4 @@ const MarkdownStyle = styled.div`
     }
 `;
 
-export default MarkdownStyle;
+export default MarkdownWrapper;
