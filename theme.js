@@ -6,6 +6,7 @@ const theme = {
     fontHighlightColor: '#e7e496',
     navColor: '#e76464',
 
+    // markdown theme
     mdLinkColor: '#e64f4f',
 }
 

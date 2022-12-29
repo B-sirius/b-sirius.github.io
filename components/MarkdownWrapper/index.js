@@ -1,7 +1,10 @@
+// 定制markdown渲染样式
 import styled from "styled-components";
 
 const MarkdownWrapper = styled.div`
-    padding: 20px 30px;
+    --md-link-color: ${({ theme }) => theme.mdLinkColor};
+
+    padding: 20px 20px;
 
     & {
         p {

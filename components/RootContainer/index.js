@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 // 固定宽度的主体容器
 const ContainerWrapper = styled.div`
-    width: 960px;
+    max-width: 960px;
     margin: auto;
     overflow: hidden;
-    padding: 40px 0;
+    padding: 40px 20px;
     min-height: 100vh;
     color: var(--font-color)
 `

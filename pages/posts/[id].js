@@ -59,6 +59,7 @@ const Post = (props) => {
     const { mdText, date, title } = props;
     const [renderedMd, setRenderedMd] = useState(null);
 
+    // ReactMarkdown这部分的渲染一定要在客户端进行，所以我们将其放在useEffect中
     useEffect(() => {
         setRenderedMd(
             <ReactMarkdown rehypePlugins={[rehypeRaw]}>

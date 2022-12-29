@@ -1,3 +1,4 @@
+// 主页，一些介绍
 import styled, { ThemeProvider } from "styled-components";
 import Root from "components/Root";
 import RootContainer from "components/RootContainer";
