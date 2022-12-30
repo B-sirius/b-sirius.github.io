@@ -48,7 +48,7 @@ const Home = () => (
           </Introduce>
         </IntroduceContainer>
         <StyledDialogBox>
-          <Gallary src="https://raw.githubusercontent.com/b-sirius/blog-images/chore-upload/gallery/1.jpeg" />
+          <Gallary src="https://blog-northeast-1.s3.ap-northeast-1.amazonaws.com/images/blog-1.jpeg" />
         </StyledDialogBox>
         <FriendLinkContainer>
           <MarkdownWrapper>
