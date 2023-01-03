@@ -99,7 +99,7 @@ async function update() {
             id = postList.find(item => item.title === title)?.id;
         }
 
-        if (id) {
+        if (id && !skip) {
             postMap[id] = {
                 id,
                 name,
