@@ -19,7 +19,7 @@ const Container = styled.div`
 const StyledLink = styled(Link)`
     padding: 5px 0;
     font-family: monospace;
-    color: ${(props) => (props.active ? 'var(--nav-color)' : 'var(--font-color)')};
+    color: ${(props) => (props.$actived ? 'var(--nav-color)' : 'var(--font-color)')};
     font-size: 20px;
     margin-right: 20px;
 
@@ -33,7 +33,7 @@ const Nav = ({ className, activeIndex }) => (
         <LinkContainer>
             {
                 LINKS.map((item, index) => (
-                    <StyledLink href={item[1]} key={item[0]} active={index === activeIndex}>
+                    <StyledLink href={item[1]} key={item[0]} $actived={index === activeIndex}>
                         [{item[0]}]
                     </StyledLink>
                 ))

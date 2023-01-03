@@ -11,7 +11,8 @@ const nextConfig = {
         protocol: 'https',
         hostname: 's2.loli.net'
       }
-    ]
+    ],
+    unoptimized: true
   }
 }
 
