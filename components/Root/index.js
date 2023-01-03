@@ -13,7 +13,11 @@ const RootWrapper = styled.div`
 
     background-color: var(--root-bg-color);
     overflow: scroll;
-    font-family: "Source Serif Pro",serif;
+    font-family: "Songti SC", "Source Serif Pro",serif;
+    @media only screen 
+        and (max-width: 500px) {
+            font-family: "GillSans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
 `
 const Root = ({ children }) => (
     <RootWrapper>
