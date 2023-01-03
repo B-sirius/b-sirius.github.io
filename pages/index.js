@@ -54,6 +54,7 @@ const Home = () => (
             src="https://s2.loli.net/2023/01/03/aLHyfVWIgjlCbkw.jpg"
             width={0}
             height={0}
+            priority
             sizes="900px"
             alt="浙美意大利雕塑展-静谧的凝视" />
         </StyledDialogBox>
