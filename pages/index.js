@@ -48,7 +48,7 @@ const Home = () => (
           </Introduce>
         </IntroduceContainer>
         <StyledDialogBox>
-          <Gallary src="https://blog-northeast-1.s3.ap-northeast-1.amazonaws.com/images/blog-1.jpeg" />
+          <Gallary src="https://s2.loli.net/2023/01/03/aLHyfVWIgjlCbkw.jpg" />
         </StyledDialogBox>
         <FriendLinkContainer>
           <MarkdownWrapper>
