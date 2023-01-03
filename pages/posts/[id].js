@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 import postMap from 'postMap.json';
 import fse from 'fs-extra';
 import matter from 'gray-matter';
@@ -105,6 +106,9 @@ const Post = (props) => {
 
     return (
         <ThemeProvider theme={theme}>
+            <Head>
+                <meta name="description" content={title} />
+            </Head>
             <Root>
                 <RootContainer>
                     <Nav />

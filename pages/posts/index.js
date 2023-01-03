@@ -1,5 +1,6 @@
 // 博客的文章列表页
 import postMap from 'postMap.json';
+import Head from 'next/head';
 import dayjs from 'dayjs';
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
@@ -33,6 +34,9 @@ const HomeSection = styled(DialogLink)`
 // 列表
 const PostList = () => (
     <ThemeProvider theme={theme}>
+        <Head>
+            <meta name="description" content="LWDW的博客列表" />
+        </Head>
         <Root>
             <RootContainer>
                 <Nav activeIndex={1} />

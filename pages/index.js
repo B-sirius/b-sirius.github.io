@@ -1,5 +1,6 @@
 // 主页，一些介绍
 import styled, { ThemeProvider } from "styled-components";
+import Head from "next/head";
 import Image from 'next/image';
 import Root from "components/Root";
 import RootContainer from "components/RootContainer";
@@ -38,6 +39,9 @@ const Space = () => (<>&nbsp;&nbsp;</>);
 
 const Home = () => (
   <ThemeProvider theme={theme}>
+    <Head>
+      <meta name="description" content="迎来到LWDW!" />
+    </Head>
     <Root>
       <RootContainer>
         <Nav activeIndex={0} />
