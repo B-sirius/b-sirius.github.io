@@ -2,6 +2,18 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  compiler: {
+    styledComponents: true
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 's2.loli.net'
+      }
+    ],
+    unoptimized: true
+  }
 }
 
 module.exports = nextConfig

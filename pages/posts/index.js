@@ -1,8 +1,17 @@
+// 博客的文章列表页
 import postMap from 'postMap.json';
+import Head from 'next/head';
 import dayjs from 'dayjs';
-import Link from 'next/link';
+import styled from 'styled-components';
+import { ThemeProvider } from 'styled-components';
+import Root from 'components/Root';
+import RootContainer from 'components/RootContainer';
+import DialogLink from 'components/DialogLink';
+import Nav from 'components/Nav';
+import theme from 'theme';
 
-const list = Object
+// 按时间排序好的博客内容
+const sortedPosts = Object
     .values(postMap)
     .sort((post1, post2) => {
         const date1 = dayjs(post1.date);
@@ -13,18 +22,36 @@ const list = Object
         return -1;
     });
 
+// 对话框样式的section
+const HomeSection = styled(DialogLink)`
+    margin-bottom: 40px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+`
+
+// 列表
 const PostList = () => (
-    <ul>
-        {list.map((post) => {
-            const { date, title, id } = post;
-            return (
-                <div key={id}>
-                    <Link href={`/posts/${id}`}>{title}</Link>
-                    <div>{date}</div>
-                </div>
-            )
-        })}
-    </ul>
+    <ThemeProvider theme={theme}>
+        <Head>
+            <meta name="description" content="LWDW的博客列表" />
+        </Head>
+        <Root>
+            <RootContainer>
+                <Nav activeIndex={1} />
+                {sortedPosts.map((post) => {
+                    const { date, title, id, description } = post;
+                    return (
+                        <HomeSection title={title} key={id} href={`/posts/${id}`}>
+                            <p>[{date}]</p>
+                            <p>{description}</p>
+                        </HomeSection>
+                    )
+                })}
+            </RootContainer>
+        </Root>
+    </ThemeProvider>
 )
 
 export default PostList;
