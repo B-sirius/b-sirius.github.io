@@ -1,5 +1,6 @@
 // 主页，一些介绍
 import styled, { ThemeProvider } from "styled-components";
+import Image from 'next/image';
 import Root from "components/Root";
 import RootContainer from "components/RootContainer";
 import StyledDialogBox from "components/DialogBox";
@@ -15,8 +16,9 @@ const IntroduceContainer = styled.div`
   padding-bottom: 30px;
 `
 
-const Gallary = styled.img`
-  max-width: 100%;
+const Gallary = styled(Image)`
+  width: 100%;
+  height: auto;
 `
 
 const FriendLinkContainer = styled.div`
@@ -48,14 +50,19 @@ const Home = () => (
           </Introduce>
         </IntroduceContainer>
         <StyledDialogBox>
-          <Gallary src="https://s2.loli.net/2023/01/03/aLHyfVWIgjlCbkw.jpg" />
+          <Gallary
+            src="https://s2.loli.net/2023/01/03/aLHyfVWIgjlCbkw.jpg"
+            width={0}
+            height={0}
+            sizes="900px"
+            alt="浙美意大利雕塑展-静谧的凝视" />
         </StyledDialogBox>
         <FriendLinkContainer>
           <MarkdownWrapper>
             <h2>友链</h2>
             <ul>
               <li>
-                <InboundLink href="https://www.mochiko.cn/">阿糕家后院</InboundLink> 
+                <InboundLink href="https://www.mochiko.cn/">阿糕家后院</InboundLink>
                 <Space />
                 一个正在翻修博客的人
               </li>

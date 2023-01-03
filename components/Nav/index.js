@@ -16,7 +16,7 @@ const Container = styled.div`
     margin-bottom: 50px;
 `
 
-const StyledA = styled.a`
+const StyledLink = styled(Link)`
     padding: 5px 0;
     font-family: monospace;
     color: ${(props) => (props.active ? 'var(--nav-color)' : 'var(--font-color)')};
@@ -33,9 +33,9 @@ const Nav = ({ className, activeIndex }) => (
         <LinkContainer>
             {
                 LINKS.map((item, index) => (
-                    <Link href={item[1]} key={item[0]}>
-                        <StyledA active={index === activeIndex}>[{item[0]}]</StyledA>
-                    </Link>
+                    <StyledLink href={item[1]} key={item[0]} active={index === activeIndex}>
+                        [{item[0]}]
+                    </StyledLink>
                 ))
             }
         </LinkContainer>

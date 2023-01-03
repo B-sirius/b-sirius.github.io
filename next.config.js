@@ -4,6 +4,14 @@ const nextConfig = {
   swcMinify: true,
   compiler: {
     styledComponents: true
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 's2.loli.net'
+      }
+    ]
   }
 }
 

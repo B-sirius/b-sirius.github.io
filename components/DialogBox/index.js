@@ -10,6 +10,7 @@ const DialogBox = ({ className, children }) => (
 )
 
 const StyledDialogBox = styled(DialogBox)`
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
