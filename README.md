@@ -1,3 +1,3 @@
 # Yi Zhou's blog
 
-check [here](b-sirius.github.io).
+check [here](https://b-sirius.github.io).
