@@ -10,9 +10,11 @@
     "updateMap": "node updateMap.js",
     "forceUpdateMap": "rm -f postMap.json && yarn updateMap",
     "export": "yarn updateMap && next build && next export -o docs/ && touch ./docs/.nojekyll",
-    "startDoc": "http-server ./docs"
+    "startDoc": "http-server ./docs",
+    "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^13.1.1",
     "dayjs": "^1.11.5",
     "next": "^13.1.1",
     "react": "^18.2.0",
