@@ -7,6 +7,7 @@ import RootContainer from "components/RootContainer";
 import StyledDialogBox from "components/DialogBox";
 import Nav from 'components/Nav';
 import MarkdownWrapper from 'components/MarkdownWrapper'
+import InboundLink from "components/InboundLink";
 import theme from "theme";
 
 const Introduce = styled.p`
@@ -25,15 +26,6 @@ const Gallary = styled(Image)`
 const FriendLinkContainer = styled.div`
   padding-top: 30px;
 `
-
-const InboundLink = ({ href, children }) => (
-  <a
-    rel="noopener noreferrer"
-    target="_blank"
-    href={href}>
-    {children}
-  </a>
-);
 
 const Space = () => (<>&nbsp;&nbsp;</>);
 
