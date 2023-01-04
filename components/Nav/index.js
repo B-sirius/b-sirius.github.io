@@ -29,6 +29,12 @@ const linkStyle = css`
     &:hover {
         cursor: pointer;
     }
+
+    @media only screen
+        and (max-width: 500px) {
+        font-size: 18px;
+        margin-right: 10px;
+    }
 `;
 
 const StyledLink = styled(Link)`${linkStyle}`
