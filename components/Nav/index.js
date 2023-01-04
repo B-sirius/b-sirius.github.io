@@ -7,6 +7,7 @@ const LINKS = [
     ['Home', '/'],
     ['Posts', '/posts'],
     ['Github', 'https://github.com/B-sirius', true],
+    ['RSS', 'https://b-sirius.github.io/rss.xml', true],
 ];
 
 const LinkContainer = styled.div`
