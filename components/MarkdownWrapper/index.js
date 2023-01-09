@@ -5,11 +5,20 @@ const MarkdownWrapper = styled.div`
     --md-link-color: ${({ theme }) => theme.mdLinkColor};
     --md-title-shadow: ${({ theme }) => theme.mdTitleShadow};
     --md-title-color: ${({ theme }) => theme.mdTitleColor};
+    --md-sub-title-color: ${({ theme }) => theme.mdSubTitleColor};
 
     & {
-        h1, h2, h3 {
+        h2 {
+            font-size: 1.8em;
+            margin-top: 50px;
+            margin-bottom: 0;
             text-shadow: var(--md-title-shadow);
             color: var(--md-title-color);
+        }
+        h3 {
+            font-size: 1.4em;
+            margin-bottom: 0;
+            color: var(--md-sub-title-color);
         }
         p {
             font-size: 18px;
