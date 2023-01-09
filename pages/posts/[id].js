@@ -72,6 +72,43 @@ const Time = styled.div`
     font-size: 14px;
 `;
 
+// 生成锚点
+const generateSlug = (string) => {
+    let str = string.replace(/^\s+|\s+$/g, "");
+    str = str.toLowerCase();
+    str = str
+        .replace(/[.|/|?|，|？|。]/g, "")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-");
+
+    return str;
+};
+
+const reactMarkdownComponents = {
+    code({ inline, className, children, ...props }) {
+        const match = /language-(\w+)/.exec(className || "");
+        return !inline && match ? (
+            <SyntaxHighlighter
+                language={match[1]}
+                style={dark}
+                {...props}
+            >
+                {String(children).replace(/\n$/, "")}
+            </SyntaxHighlighter>
+        ) : (
+            <code className={className} {...props}>
+                {children}
+            </code>
+        );
+    },
+    h2: ({ ...props }) => (
+        <h2 id={generateSlug(props.children[0])} {...props}></h2>
+    ),
+    h3: ({ ...props }) => (
+        <h3 id={generateSlug(props.children[0])} {...props}></h3>
+    ),
+}
+
 const Post = (props) => {
     const { mdText, date, title } = props;
     const [renderedMd, setRenderedMd] = useState(null);
@@ -81,24 +118,7 @@ const Post = (props) => {
         setRenderedMd(
             <ReactMarkdown
                 rehypePlugins={[rehypeRaw]}
-                components={{
-                    code({ inline, className, children, ...props }) {
-                        const match = /language-(\w+)/.exec(className || "");
-                        return !inline && match ? (
-                            <SyntaxHighlighter
-                                language={match[1]}
-                                style={dark}
-                                {...props}
-                            >
-                                {String(children).replace(/\n$/, "")}
-                            </SyntaxHighlighter>
-                        ) : (
-                            <code className={className} {...props}>
-                                {children}
-                            </code>
-                        );
-                    }
-                }}>
+                components={reactMarkdownComponents}>
                 {mdText}
             </ReactMarkdown>
         )
