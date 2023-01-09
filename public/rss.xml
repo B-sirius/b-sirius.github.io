@@ -4,9 +4,16 @@
         <description><![CDATA[LWDW! posts | RSS Feed]]></description>
         <link>https://b-sirius.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 04 Jan 2023 07:47:08 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Jan 2023 08:49:05 GMT</lastBuildDate>
         <atom:link href="https://b-sirius.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 04 Jan 2023 00:00:00 GMT</pubDate>
+        <pubDate>Mon, 09 Jan 2023 00:00:00 GMT</pubDate>
+        <item>
+            <title><![CDATA[R项目小结]]></title>
+            <description><![CDATA[最近结束的一个项目有很多值得学习的地方，挑一些不敏感的在此记录。其中的每一点其实都有深入挖掘的空间，日后想必会再次遇到。......]]></description>
+            <link>https://b-sirius.github.io/posts/163</link>
+            <guid isPermaLink="true">https://b-sirius.github.io/posts/163</guid>
+            <pubDate>Mon, 09 Jan 2023 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[我就是在🐷厂饿死，也不做什么IDP规划]]></title>
             <description><![CDATA[给图床放了个十一黄金周，而我——看了7天大宅门！......]]></description>
