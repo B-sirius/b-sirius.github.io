@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
     const { id } = context.params;
-    const { name, title, date } = postMap[id];
+    const { name, title, date, description } = postMap[id];
     const mdData = await fse.readFile(`${postsDirPath}/${name}`);
     const { content: mdText } = matter(mdData);
     return {
@@ -39,6 +39,7 @@ export async function getStaticProps(context) {
             title,
             date,
             mdText,
+            description
         }
     }
 }
@@ -107,10 +108,20 @@ const reactMarkdownComponents = {
     h3: ({ ...props }) => (
         <h3 id={generateSlug(props.children[0])} {...props}></h3>
     ),
+    a: ({ children, href }) => {
+        if (href[0] !== '#') {
+            return (
+                <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>
+            )
+        }
+        return (
+            <a href={href}>{children}</a>
+        )
+    }
 }
 
 const Post = (props) => {
-    const { mdText, date, title } = props;
+    const { mdText, date, title, description } = props;
     const [renderedMd, setRenderedMd] = useState(null);
 
     // ReactMarkdown这部分的渲染一定要在客户端进行，所以我们将其放在useEffect中
@@ -128,6 +139,8 @@ const Post = (props) => {
         <ThemeProvider theme={theme}>
             <Head>
                 <meta name="description" content={title} />
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={description} />
             </Head>
             <Root>
                 <RootContainer>

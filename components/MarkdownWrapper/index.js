@@ -30,6 +30,9 @@ const MarkdownWrapper = styled.div`
         img {
             width: 100%;
         }
+        hr {
+            border-color: #111;
+        }
 
         @media only screen 
             and (max-width: 500px) {
