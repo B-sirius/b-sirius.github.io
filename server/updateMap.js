@@ -79,8 +79,9 @@ async function update() {
 
     // 遍历_posts目录中的md，获取相关的信息
     const postList = Object.values(postMap);
+    const newPostMap = {};
     const titleList = postList.map(item => item.title);
-    const postFileNames = await fse.readdir('./_posts');
+    const postFileNames = (await fse.readdir('./_posts')).filter(name => !!name && name[0] !== '.');
     const mdPathList = postFileNames.map((name) => ({
         name,
         path: path.join(process.cwd(), '_posts', name)
@@ -100,7 +101,7 @@ async function update() {
         }
 
         if (id && !skip) {
-            postMap[id] = {
+            newPostMap[id] = {
                 id,
                 name,
                 title,
@@ -111,7 +112,7 @@ async function update() {
         }
     }
 
-    await fse.writeFile('postMap.json', JSON.stringify(postMap));
+    await fse.writeFile('postMap.json', JSON.stringify(newPostMap));
 }
 
 update();

@@ -25,6 +25,8 @@ const PostList = () => (
     <ThemeProvider theme={theme}>
         <Head>
             <meta name="description" content="LWDW的博客列表" />
+            <meta property="og:title" content="LWDW的博客列表" />
+            <meta property="og:description" content="LWDW的博客列表" />
         </Head>
         <Root>
             <RootContainer>
