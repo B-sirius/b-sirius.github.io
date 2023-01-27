@@ -4,9 +4,16 @@
         <description><![CDATA[LWDW! posts | RSS Feed]]></description>
         <link>https://b-sirius.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 18 Jan 2023 04:37:22 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 27 Jan 2023 04:18:29 GMT</lastBuildDate>
         <atom:link href="https://b-sirius.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 18 Jan 2023 00:00:00 GMT</pubDate>
+        <pubDate>Fri, 27 Jan 2023 00:00:00 GMT</pubDate>
+        <item>
+            <title><![CDATA[关于前端工程师进阶的一点猜想，不一定对]]></title>
+            <description><![CDATA[在入行了一段时间之后，俺一直有一个迷思：一个熟练的初中级开发者，该如何进阶？我们的选择似乎如此之多，好像什么都能学一点，但又很难自信的说，今日所学将来会派上用场。......]]></description>
+            <link>https://b-sirius.github.io/posts/181</link>
+            <guid isPermaLink="true">https://b-sirius.github.io/posts/181</guid>
+            <pubDate>Fri, 27 Jan 2023 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[你的静态博客，何必是hexo]]></title>
             <description><![CDATA[hexo一直是静态博客的首选之一，它开箱即用的特点以及相对丰富的主题选择让使用者可以聚焦于博客内容的编写，同时拥有一个相对美观的界面。但如果你是一个对博客内容有高度自定义需求的开发者，且并没有分享博客......]]></description>
