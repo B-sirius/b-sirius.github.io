@@ -6,6 +6,7 @@ const MarkdownWrapper = styled.div`
     --md-title-shadow: ${({ theme }) => theme.mdTitleShadow};
     --md-title-color: ${({ theme }) => theme.mdTitleColor};
     --md-sub-title-color: ${({ theme }) => theme.mdSubTitleColor};
+    --md-third-title-color: ${({ theme }) => theme.mdThirdTitleColor};
 
     & {
         h2 {
@@ -18,6 +19,10 @@ const MarkdownWrapper = styled.div`
         h3 {
             font-size: 1.4em;
             margin-bottom: 0;
+            color: var(--md-sub-title-color);
+        }
+        h4,h5,h6 {
+            font-size: 1.2em;
             color: var(--md-sub-title-color);
         }
         p {
