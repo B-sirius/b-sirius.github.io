@@ -78,9 +78,7 @@ async function update() {
     }
 
     // 遍历_posts目录中的md，获取相关的信息
-    const postList = Object.values(postMap);
     const newPostMap = {};
-    const titleList = postList.map(item => item.title);
     const postFileNames = (await fse.readdir('./_posts')).filter(name => !!name && name[0] !== '.');
     const mdPathList = postFileNames.map((name) => ({
         name,
@@ -90,23 +88,15 @@ async function update() {
     for (const { name, path } of mdPathList) {
         const mdData = await fse.readFile(path);
         const { data: mdInfo, content } = matter(mdData);
-        const { title, date, skip = false } = mdInfo;
+        const { title, date, draft = false, slug } = mdInfo;
 
-        let id;
-        if (!titleList.includes(title)) {
-            // 我希望新id是不连续的
-            id = getTopId() + Math.ceil(Math.random() * 10) + 1;
-        } else {
-            id = postList.find(item => item.title === title)?.id;
-        }
-
-        if (id && !skip) {
-            newPostMap[id] = {
-                id,
+        if (!draft) {
+            newPostMap[slug] = {
+                id: slug,
                 name,
                 title,
                 date: dayjs(date).format('YYYY-MM-DD'),
-                skip,
+                draft,
                 description: getDescription(content)
             }
         }
