@@ -4,9 +4,16 @@
         <description><![CDATA[LWDW! posts | RSS Feed]]></description>
         <link>https://b-sirius.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 17 Feb 2023 14:07:21 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 03 Mar 2023 01:35:33 GMT</lastBuildDate>
         <atom:link href="https://b-sirius.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 17 Feb 2023 08:00:00 GMT</pubDate>
+        <pubDate>Fri, 03 Mar 2023 08:00:00 GMT</pubDate>
+        <item>
+            <title><![CDATA[Sign in with apple by Flutter in iOS]]></title>
+            <description><![CDATA[Sign in with Apple is commonly used by modern apps now, this article will introduce a way to impleme......]]></description>
+            <link>https://b-sirius.github.io/posts/apple-login-with-flutter-in-ios</link>
+            <guid isPermaLink="true">https://b-sirius.github.io/posts/apple-login-with-flutter-in-ios</guid>
+            <pubDate>Thu, 02 Mar 2023 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[使用Github Actions与CloudFlare Pages优化博客上线流程]]></title>
             <description><![CDATA[我个人的首选方案是Github Pages，因为它免费，且域名直观。......]]></description>
