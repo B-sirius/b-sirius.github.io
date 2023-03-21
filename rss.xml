@@ -4,9 +4,16 @@
         <description><![CDATA[LWDW! posts | RSS Feed]]></description>
         <link>https://b-sirius.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 18 Mar 2023 09:53:16 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 21 Mar 2023 13:12:18 GMT</lastBuildDate>
         <atom:link href="https://b-sirius.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 18 Mar 2023 08:00:00 GMT</pubDate>
+        <pubDate>Tue, 21 Mar 2023 08:00:00 GMT</pubDate>
+        <item>
+            <title><![CDATA[getx practice - controllers and bindings]]></title>
+            <description><![CDATA[First off, I'm not a fan of Getx. Although it's a good and popular library. If I were to rate it, I ......]]></description>
+            <link>https://b-sirius.github.io/posts/getx-controllers-bindings</link>
+            <guid isPermaLink="true">https://b-sirius.github.io/posts/getx-controllers-bindings</guid>
+            <pubDate>Tue, 21 Mar 2023 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Sign in with apple by Flutter in iOS]]></title>
             <description><![CDATA[Sign in with Apple is commonly used by modern apps now, this article will introduce a way to impleme......]]></description>
