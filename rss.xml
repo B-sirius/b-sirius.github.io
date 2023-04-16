@@ -4,11 +4,11 @@
         <description><![CDATA[LWDW! posts | RSS Feed]]></description>
         <link>https://b-sirius.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 21 Mar 2023 13:12:18 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 16 Apr 2023 11:31:54 GMT</lastBuildDate>
         <atom:link href="https://b-sirius.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 21 Mar 2023 08:00:00 GMT</pubDate>
+        <pubDate>Sun, 16 Apr 2023 08:00:00 GMT</pubDate>
         <item>
-            <title><![CDATA[getx practice - controllers and bindings]]></title>
+            <title><![CDATA[Getx practice - controllers and bindings]]></title>
             <description><![CDATA[First off, I'm not a fan of Getx. Although it's a good and popular library. If I were to rate it, I ......]]></description>
             <link>https://b-sirius.github.io/posts/getx-controllers-bindings</link>
             <guid isPermaLink="true">https://b-sirius.github.io/posts/getx-controllers-bindings</guid>
