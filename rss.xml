@@ -4,9 +4,16 @@
         <description><![CDATA[LWDW! posts | RSS Feed]]></description>
         <link>https://b-sirius.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 16 Apr 2023 11:31:54 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 02 May 2023 09:34:24 GMT</lastBuildDate>
         <atom:link href="https://b-sirius.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 16 Apr 2023 08:00:00 GMT</pubDate>
+        <pubDate>Tue, 02 May 2023 08:00:00 GMT</pubDate>
+        <item>
+            <title><![CDATA[【译】Parse, not validate / 为什么我们需要强类型语言？]]></title>
+            <description><![CDATA[译者：作为一个从JS开始入门编程的程序员，我在很长一段时间以来不知道“强类型语言”到底有什么好处。就好像TS，虽然它让IDE的类型提示等等更加健全了，但觉着更多的还是加大了我的工作量，我也很不想在一些......]]></description>
+            <link>https://b-sirius.github.io/posts/parse-not-validate</link>
+            <guid isPermaLink="true">https://b-sirius.github.io/posts/parse-not-validate</guid>
+            <pubDate>Tue, 02 May 2023 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Getx practice - controllers and bindings]]></title>
             <description><![CDATA[First off, I'm not a fan of Getx. Although it's a good and popular library. If I were to rate it, I ......]]></description>
