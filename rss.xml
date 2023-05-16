@@ -4,16 +4,9 @@
         <description><![CDATA[LWDW! posts | RSS Feed]]></description>
         <link>https://b-sirius.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 12 May 2023 17:43:39 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 16 May 2023 08:46:04 GMT</lastBuildDate>
         <atom:link href="https://b-sirius.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 12 May 2023 08:00:00 GMT</pubDate>
-        <item>
-            <title><![CDATA[偶尔自白还挺舒心]]></title>
-            <description><![CDATA[此时此刻，以书面的形式做一次自白似乎最能让我的心态归于良好。事实上在开始打下这行字的时候，内心就轻松了许多。......]]></description>
-            <link>https://b-sirius.github.io/posts/confession</link>
-            <guid isPermaLink="true">https://b-sirius.github.io/posts/confession</guid>
-            <pubDate>Sat, 13 May 2023 00:00:00 GMT</pubDate>
-        </item>
+        <pubDate>Tue, 16 May 2023 08:00:00 GMT</pubDate>
         <item>
             <title><![CDATA[【译】Parse, not validate / 为什么我们需要强类型语言？]]></title>
             <description><![CDATA[译者：作为一个从JS开始入门编程的程序员，我在很长一段时间以来不知道“强类型语言”到底有什么好处。就好像TS，虽然它让IDE的类型提示等等更加健全了，但觉着更多的还是加大了我的工作量，我也很不想在一些......]]></description>
