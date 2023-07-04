@@ -4,9 +4,16 @@
         <description><![CDATA[LWDW! posts | RSS Feed]]></description>
         <link>https://b-sirius.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 29 Jun 2023 09:18:17 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 04 Jul 2023 08:21:26 GMT</lastBuildDate>
         <atom:link href="https://b-sirius.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 29 Jun 2023 08:00:00 GMT</pubDate>
+        <pubDate>Tue, 04 Jul 2023 08:00:00 GMT</pubDate>
+        <item>
+            <title><![CDATA[【译】so, why server components / server components有啥好？]]></title>
+            <description><![CDATA[Next13已经在App Router中将Server Component作为默认配置，但你真的了解它么？这可不是什么SSR，完全不同，如果你对其抱有一丝兴趣与疑问，这篇译文或许可以给你一些答案。]]></description>
+            <link>https://b-sirius.github.io/posts/so-why-server-components</link>
+            <guid isPermaLink="true">https://b-sirius.github.io/posts/so-why-server-components</guid>
+            <pubDate>Tue, 04 Jul 2023 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[【译】The Perils of Hydration / 你所不了解的Hydration]]></title>
             <description><![CDATA[本文仍是一篇译文，如果你是Next/Gatsby的开发者，你可能听说过hydration，这一步骤与SSR+React技术息息相关（事实上我看到过大量相关报错），但你可能从未深入考虑过其背后的原理，而这甚至容易导致一些常见的错误......]]></description>
