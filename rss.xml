@@ -4,9 +4,9 @@
         <description><![CDATA[LWDW! posts | RSS Feed]]></description>
         <link>https://b-sirius.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 17 Jul 2023 06:42:51 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 18 Jul 2023 06:32:04 GMT</lastBuildDate>
         <atom:link href="https://b-sirius.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 17 Jul 2023 08:00:00 GMT</pubDate>
+        <pubDate>Tue, 18 Jul 2023 08:00:00 GMT</pubDate>
         <item>
             <title><![CDATA[【译】so, why server components / server components有啥好？]]></title>
             <description><![CDATA[Next13已经在App Router中将Server Component作为默认配置，但你真的了解它么？这可不是什么SSR，完全不同，如果你对其抱有一丝兴趣与疑问，这篇译文或许可以给你一些答案。]]></description>
