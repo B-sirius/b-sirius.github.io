@@ -4,9 +4,16 @@
         <description><![CDATA[LWDW! posts | RSS Feed]]></description>
         <link>https://b-sirius.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 18 Jul 2023 06:32:04 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 15 Aug 2023 09:48:42 GMT</lastBuildDate>
         <atom:link href="https://b-sirius.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 18 Jul 2023 08:00:00 GMT</pubDate>
+        <pubDate>Tue, 15 Aug 2023 08:00:00 GMT</pubDate>
+        <item>
+            <title><![CDATA[RxJS - 拯救脆弱异步代码，成为时间掌控者！]]></title>
+            <description><![CDATA[接口请求、键盘输入、文件上传、界面拖拽......业务中有各种各样“异步”的情形。在过去我们只能精心编织代码，祈求并发不要出错，接口响应不要相互覆盖，但有了RxJS，处理异步变成了一种尽在掌握的享受，以至于我觉得这是JS中最值得掌握的package之一。]]></description>
+            <link>https://b-sirius.github.io/posts/rxjs-async-master</link>
+            <guid isPermaLink="true">https://b-sirius.github.io/posts/rxjs-async-master</guid>
+            <pubDate>Tue, 15 Aug 2023 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[【译】so, why server components / server components有啥好？]]></title>
             <description><![CDATA[Next13已经在App Router中将Server Component作为默认配置，但你真的了解它么？这可不是什么SSR，完全不同，如果你对其抱有一丝兴趣与疑问，这篇译文或许可以给你一些答案。]]></description>
