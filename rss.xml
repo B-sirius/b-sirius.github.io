@@ -4,12 +4,12 @@
         <description><![CDATA[LWDW! posts | RSS Feed]]></description>
         <link>https://b-sirius.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 15 Aug 2023 09:48:42 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 17 Aug 2023 01:49:43 GMT</lastBuildDate>
         <atom:link href="https://b-sirius.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 15 Aug 2023 08:00:00 GMT</pubDate>
+        <pubDate>Thu, 17 Aug 2023 08:00:00 GMT</pubDate>
         <item>
-            <title><![CDATA[RxJS - 拯救脆弱异步代码，成为时间掌控者！]]></title>
-            <description><![CDATA[接口请求、键盘输入、文件上传、界面拖拽......业务中有各种各样“异步”的情形。在过去我们只能精心编织代码，祈求并发不要出错，接口响应不要相互覆盖，但有了RxJS，处理异步变成了一种尽在掌握的享受，以至于我觉得这是JS中最值得掌握的package之一。]]></description>
+            <title><![CDATA[图解RxJS - 最适合中国宝宝的入门指导]]></title>
+            <description><![CDATA[RxJS很好，但是它的文档不能说不好，只能说是完全无从下手。本文将把RxJS的概念放在一边，用图例解释RxJS到底在怎么解决问题。在读完本文后，再去看官方文档，会容易很多。]]></description>
             <link>https://b-sirius.github.io/posts/rxjs-async-master</link>
             <guid isPermaLink="true">https://b-sirius.github.io/posts/rxjs-async-master</guid>
             <pubDate>Tue, 15 Aug 2023 00:00:00 GMT</pubDate>
