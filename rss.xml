@@ -4,9 +4,16 @@
         <description><![CDATA[LWDW! posts | RSS Feed]]></description>
         <link>https://b-sirius.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 04 Mar 2024 04:29:04 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 24 May 2024 07:18:30 GMT</lastBuildDate>
         <atom:link href="https://b-sirius.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 04 Mar 2024 08:00:00 GMT</pubDate>
+        <pubDate>Fri, 24 May 2024 08:00:00 GMT</pubDate>
+        <item>
+            <title><![CDATA[从Dev到DevOps，借助Docker在Azure上部署你的第一个全栈应用]]></title>
+            <description><![CDATA[本地应用如何部署线上，docker如何帮你解放双手，云服务究竟长作什样，本文带你一探究竟！]]></description>
+            <link>https://b-sirius.github.io/posts/deploy-fullstack-application-with-docker-on-azure</link>
+            <guid isPermaLink="true">https://b-sirius.github.io/posts/deploy-fullstack-application-with-docker-on-azure</guid>
+            <pubDate>Fri, 24 May 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[图解Nestjs - 适合中国宝宝的入门指导]]></title>
             <description><![CDATA[Nestjs很好用，但刚入门时也挺让人迷糊，本文会尽量简单的展示Nestjs是如何运作的，适合正在入门但仍然迷糊Nestjs的人阅读]]></description>
